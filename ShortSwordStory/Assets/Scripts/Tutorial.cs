@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
+    [SerializeField]
+    private PlayerManager _playerManager;
     public List<GameObject> canvas = new List<GameObject>();
     public List<GameObject> objects = new List<GameObject>();
     public List<Text> tutorialtext = new List<Text>();
@@ -18,6 +20,8 @@ public class Tutorial : MonoBehaviour
         canvas[1].SetActive(false);
         canvas[2].SetActive(false);
         canvas[3].SetActive(false);
+        objects[7].SetActive(false);
+        objects[8].SetActive(false);
     }
 
     // Update is called once per frame
@@ -33,6 +37,7 @@ public class Tutorial : MonoBehaviour
                 tutorialtext[3].text = "";
                 tutorialtext[4].text = "";
                 tutorialtext[5].text = "";
+                tutorialtext[6].text = "";
                 break;
             case 1:
                 tutorialtext[0].text = "ここでは基本的な操作やルールを学べるよ!";
@@ -124,7 +129,30 @@ public class Tutorial : MonoBehaviour
                 break;
             case 14:
                 objects[0].SetActive(true);
+                tutorialtext[5].text = "次は敵を100体倒すごとに使えるULTを使ってみよう！";
+                tutorialtext[4].text = "SPACEボタンで使えるよ！";
+                break;
+            case 15:
+                objects[0].SetActive(false);
+                if (tutorialCount == 6)
+                {
+                    _playerManager.ultcount++;
+                    Instantiate(objects[5], objects[6].transform.position, objects[6].transform.rotation);
+                    tutorialCount = 7;
+                }
                 tutorialtext[5].text = "";
+                tutorialtext[4].text = "";
+                break;
+            case 23:
+                objects[0].SetActive(true);
+                tutorialtext[5].text = "いいね！これでチュートリアルは終了だよ！";
+                tutorialtext[4].text = "";
+                break;
+            case 24:
+                objects[0].SetActive(false);
+                objects[7].SetActive(true);
+                objects[8].SetActive(true);
+                tutorialtext[6].text = "ゲームを始めるかタイトルに戻ろう！";
                 tutorialtext[4].text = "";
                 break;
         }

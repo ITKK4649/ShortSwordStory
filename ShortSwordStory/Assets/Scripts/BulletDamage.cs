@@ -8,6 +8,7 @@ public class BulletDamage : MonoBehaviour
     private GameManager _gameManager;
     private EnemyManager _enemyManager;
     private GunEnemyManager _gunenemyManager;
+    private TutorialEnemyManager _tutorialenemyManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,15 @@ public class BulletDamage : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             _enemyManager = other.GetComponent<EnemyManager>();
-            _enemyManager._enemyHp -= _gameManager._attackDamage * 10;
+            _tutorialenemyManager = other.GetComponent<TutorialEnemyManager>();
+            if (_enemyManager == false)
+            {
+                _tutorialenemyManager._enemyHp -= _gameManager._attackDamage * 10;
+            }
+            else
+            {
+                _enemyManager._enemyHp -= _gameManager._attackDamage * 10;
+            }
         }
         if (other.gameObject.CompareTag("GunEnemy"))
         {
@@ -37,7 +46,15 @@ public class BulletDamage : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             _enemyManager = other.GetComponent<EnemyManager>();
-            _enemyManager._enemyHp -= _gameManager._attackDamage * 10;
+            _tutorialenemyManager = other.GetComponent<TutorialEnemyManager>();
+            if (_enemyManager == false)
+            {
+                _tutorialenemyManager._enemyHp -= _gameManager._attackDamage * 10;
+            }
+            else
+            {
+                _enemyManager._enemyHp -= _gameManager._attackDamage * 10;
+            }
         }
         if (other.gameObject.CompareTag("GunEnemy"))
         {
