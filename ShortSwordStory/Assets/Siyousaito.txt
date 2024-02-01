@@ -1,0 +1,10 @@
+敵移動
+https://qiita.com/Unity_mametarou/items/8527754a52bdae2221a0
+カーソル　固定・非表示
+https://santerabyte.com/unity-cursor-setting/
+敵　こちらに向く
+https://qiita.com/Mikoshi/items/17bac6161842edeefa41
+敵 HP表示
+https://gametukurikata.com/ui/hpui
+敵　玉発射
+https://futabazemi.net/unity/unity-enemy_shot3d
