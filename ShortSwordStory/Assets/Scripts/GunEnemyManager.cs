@@ -22,6 +22,8 @@ public class GunEnemyManager : MonoBehaviour
     GameObject Enemybullet;
     private float EnemybulletSpeed = 10.0f;
     private float time = 5.0f;
+    [SerializeField]
+    private GameObject Death;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,7 @@ public class GunEnemyManager : MonoBehaviour
         _playerManager = _player.GetComponent<PlayerManager>();
         _GameManager = GameObject.Find("GameManager");
         _gameManager = _GameManager.GetComponent<GameManager>();
-        _gunenemyHp = _gameManager._gunenemyMaxHp;
+        _gunenemyHp = _gameManager._enemyMaxHp[1];
         _speed = 1f;
     }
 
@@ -47,12 +49,13 @@ public class GunEnemyManager : MonoBehaviour
             if (_gunenemyHp <= 0)
             {
                 Destroy(this.gameObject);
+                Instantiate(Death, this.gameObject.transform.position, Quaternion.identity);
                 _playerManager.exp += Random.Range(1, 10);
                 _gameManager._enemyKillCount++;
                 _gameManager._enemyKillCountMax++;
             }
-            _EnemyHpSlider.value = (float)_gunenemyHp / (float)_gameManager._gunenemyMaxHp;
-            _EnemyHpText.text = _gunenemyHp + "/" + _gameManager._gunenemyMaxHp;
+            _EnemyHpSlider.value = (float)_gunenemyHp / (float)_gameManager._enemyMaxHp[1];
+            _EnemyHpText.text = _gunenemyHp + "/" + _gameManager._enemyMaxHp[1];
             time -= Time.deltaTime;
             if (time <= 0)
             {

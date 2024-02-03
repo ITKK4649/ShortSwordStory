@@ -64,7 +64,7 @@ public class Tutorial : MonoBehaviour
                 }
                 objects[0].SetActive(false);
                 objects[2].SetActive(true);
-                tutorialtext[0].text = "";
+                tutorialtext[0].text = "視点を動かして青いエリアに移動してみよう!";
                 tutorialtext[1].text = "視点はマウスを動かせば変えられるよ！";
                 break;
             case 6:

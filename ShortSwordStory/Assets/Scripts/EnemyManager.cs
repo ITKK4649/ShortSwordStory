@@ -19,6 +19,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private Text _EnemyHpText;
     public bool heal = false;
+    [SerializeField]
+    private GameObject Death;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class EnemyManager : MonoBehaviour
         _GameManager = GameObject.Find("GameManager");
         _gameManager = _GameManager.GetComponent<GameManager>();
         _tutorial = _GameManager.GetComponent<Tutorial>();
-        _enemyHp = _gameManager._enemyMaxHp;
+        _enemyHp = _gameManager._enemyMaxHp[0];
     }
 
     // Update is called once per frame
@@ -49,11 +51,12 @@ public class EnemyManager : MonoBehaviour
         if (_enemyHp <= 0)
         {
             Destroy(this.gameObject);
+            Instantiate(Death, this.gameObject.transform.position, Quaternion.identity);
             _playerManager.exp += Random.Range(1, 10);
             _gameManager._enemyKillCount++;
             _gameManager._enemyKillCountMax++;
         }
-        _EnemyHpSlider.value = (float)_enemyHp / (float)_gameManager._enemyMaxHp;
-        _EnemyHpText.text = _enemyHp + "/" + _gameManager._enemyMaxHp;
+        _EnemyHpSlider.value = (float)_enemyHp / (float)_gameManager._enemyMaxHp[0];
+        _EnemyHpText.text = _enemyHp + "/" + _gameManager._enemyMaxHp[0];
     }
 }

@@ -558,6 +558,7 @@ MonoBehaviour:
   _EnemyHpSlider: {fileID: 4910324857691481562}
   _EnemyHpText: {fileID: 8774958287677667042}
   heal: 0
+  Death: {fileID: 6257742918754073133, guid: 0de96944e2674e84bad852595d157518, type: 3}
 --- !u!1 &8656091350965499456
 GameObject:
   m_ObjectHideFlags: 0

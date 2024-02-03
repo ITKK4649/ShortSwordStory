@@ -28,6 +28,8 @@ public class TpEnemyManager : MonoBehaviour
     public bool heal = false;
     private float _tpTime;
     public float _tpTimeMax = 1f;
+    [SerializeField]
+    private GameObject Death;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +38,7 @@ public class TpEnemyManager : MonoBehaviour
         _playerManager = _player.GetComponent<PlayerManager>();
         _GameManager = GameObject.Find("GameManager");
         _gameManager = _GameManager.GetComponent<GameManager>();
-        _tpenemyHp = _gameManager._tpenemyMaxHp;
+        _tpenemyHp = _gameManager._enemyMaxHp[2];
     }
 
     // Update is called once per frame
@@ -78,12 +80,13 @@ public class TpEnemyManager : MonoBehaviour
         if (_tpenemyHp <= 0)
         {
             Destroy(this.gameObject);
+            Instantiate(Death, this.gameObject.transform.position, Quaternion.identity);
             _playerManager.exp += Random.Range(1, 10);
             _gameManager._enemyKillCount++;
             _gameManager._enemyKillCountMax++;
         }
-        _EnemyHpSlider.value = (float)_tpenemyHp / (float)_gameManager._enemyMaxHp;
-        _EnemyHpText.text = _tpenemyHp + "/" + _gameManager._enemyMaxHp;
+        _EnemyHpSlider.value = (float)_tpenemyHp / (float)_gameManager._enemyMaxHp[2];
+        _EnemyHpText.text = _tpenemyHp + "/" + _gameManager._enemyMaxHp[2];
     }
 
 }

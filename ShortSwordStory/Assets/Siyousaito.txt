@@ -8,3 +8,5 @@ https://qiita.com/Mikoshi/items/17bac6161842edeefa41
 https://gametukurikata.com/ui/hpui
 敵　玉発射
 https://futabazemi.net/unity/unity-enemy_shot3d
+爆発エフェクト
+https://styly.cc/ja/tips/explosion01/

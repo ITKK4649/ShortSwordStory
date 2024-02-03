@@ -177,6 +177,7 @@ MonoBehaviour:
   tpRangeB: {fileID: 6772163347684799290}
   heal: 0
   _tpTimeMax: 1
+  Death: {fileID: 6257742918754073133, guid: 0de96944e2674e84bad852595d157518, type: 3}
 --- !u!1 &1930820084433930909
 GameObject:
   m_ObjectHideFlags: 0

@@ -4506,11 +4506,9 @@ MonoBehaviour:
   _attackDamage: 1
   _playerHp: 400
   _playerMaxHp: 400
-  _enemyMaxHp: 10
-  _gunenemyMaxHp: 20
-  _tpenemyMaxHp: 30
+  _enemyMaxHp: 05000000140000001e000000
   _enemyKillCount: 0
-  _enemyKillCountMax: 0
+  _enemyKillCountMax: 300
   _playerHpSlider: {fileID: 1617740650}
   _enemy: {fileID: 871632336190509285, guid: c3c6770154fa69649921a34ff02d5c13, type: 3}
   _gunenemy: {fileID: 871632336190509285, guid: fcd06cda04674b4469f69f70e43f3604, type: 3}
@@ -4589,6 +4587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a737969876aeb754688acb6a3fc4f7e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerManager: {fileID: 0}
   canvas: []
   objects: []
   tutorialtext: []

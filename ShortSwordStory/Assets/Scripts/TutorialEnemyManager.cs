@@ -19,17 +19,18 @@ public class TutorialEnemyManager : MonoBehaviour
     [SerializeField]
     private Text _EnemyHpText;
     public bool heal = false;
+    [SerializeField]
+    private GameObject Death;
     // Start is called before the first frame update
     void Start()
     {
-        _enemyHp = 4;
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerStrengthen = _player.GetComponent<PlayerStrengthen>();
         _playerManager = _player.GetComponent<PlayerManager>();
         _GameManager = GameObject.Find("GameManager");
         _gameManager = _GameManager.GetComponent<GameManager>();
         _tutorial = _GameManager.GetComponent<Tutorial>();
-        _enemyHp = _gameManager._enemyMaxHp;
+        _enemyHp = _gameManager._enemyMaxHp[0];
         _speed = 1f;
     }
 
@@ -51,13 +52,14 @@ public class TutorialEnemyManager : MonoBehaviour
         if (_enemyHp <= 0)
         {
             _playerManager.exp += Random.Range(100, 100);
+            Instantiate(Death, this.gameObject.transform.position, Quaternion.identity);
             _gameManager._enemyKillCount++;
             _gameManager._enemyKillCountMax++;
             _tutorial.tutorialtextCount++;
             _tutorial.objects[0].SetActive(true);
             Destroy(this.gameObject);
         }
-        _EnemyHpSlider.value = (float)_enemyHp / (float)_gameManager._enemyMaxHp;
-        _EnemyHpText.text = _enemyHp + "/" + _gameManager._enemyMaxHp;
+        _EnemyHpSlider.value = (float)_enemyHp / (float)_gameManager._enemyMaxHp[0];
+        _EnemyHpText.text = _enemyHp + "/" + _gameManager._enemyMaxHp[0];
     }
 }
