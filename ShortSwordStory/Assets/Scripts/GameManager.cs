@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public List<int> _enemyMaxHp = new List<int>();
     public int _enemyKillCount;
     public int _enemyKillCountMax;
-    bool Starts = false;
+    bool Hpup = false;
 
     [SerializeField]
     private GameObject _enemy;
@@ -62,10 +62,10 @@ public class GameManager : MonoBehaviour
         {
             Cursor.visible = true;
         }
-        if(_enemyKillCountMax == 5 && !Starts)
+        if(_enemyKillCountMax == 20 && !Hpup)
         {
             _enemyMaxHp[0] += 5;
-            Starts = true;
+            Hpup = true;
         }
         if(_enemyKillCount >= 100)
         {
