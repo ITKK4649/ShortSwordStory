@@ -70,6 +70,7 @@ public class TpEnemyManager : MonoBehaviour
         }
         if (_tpenemyHp <= 10 && _tpenemyHp != 0 && _tpCount == 0)
         {
+            // rangeAとrangeBのx座標の範囲内でランダムな数値を作成
             float x = Random.Range(tpRangeA.position.x, tpRangeB.position.x);
             // rangeAとrangeBのz座標の範囲内でランダムな数値を作成
             float z = Random.Range(tpRangeA.position.z, tpRangeB.position.z);
@@ -81,7 +82,7 @@ public class TpEnemyManager : MonoBehaviour
         {
             Destroy(this.gameObject);
             Instantiate(Death, this.gameObject.transform.position, Quaternion.identity);
-            _playerManager.exp += Random.Range(1, 10);
+            _playerManager.exp += Random.Range(1 * _gameManager._Expboost, 10 * _gameManager._Expboost);
             _gameManager._enemyKillCount++;
             _gameManager._enemyKillCountMax++;
         }

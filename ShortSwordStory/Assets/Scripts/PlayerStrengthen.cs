@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerStrengthen : MonoBehaviour
 {
@@ -97,51 +96,71 @@ public class PlayerStrengthen : MonoBehaviour
     }
     public void playerspeed()
     {
+        //経験値が必要経験値を上回っているか
         if(_playerManager.exp >= _playerspeedexp)
         {
-            if(_tutorial.tutorialtextCount == 10)
+            //チュートリアルが10段階目以上進んでたら
+            if (_tutorial.tutorialtextCount == 10)
             {
                 _tutorial.tutorialtextCount++;
             }
+            //プレイヤーの速度をランダムで0.01～0.03の値で強化
             _playerManager.speed += Random.Range(0.01f, 0.04f);
+            //プレイヤーの経験値を必要経験値分マイナス
             _playerManager.exp -= _playerspeedexp;
+            //必要経験値を5～9の間で増加
             _playerspeedexp += Random.Range(5,10);
         }
     }
     public void playerAttackspeed()
     {
+        //経験値が必要経験値を上回っているか
         if (_playerManager.exp >= _playerattackspeedexp)
         {
+            //チュートリアルが10段階目以上進んでたら
             if (_tutorial.tutorialtextCount == 10)
             {
                 _tutorial.tutorialtextCount++;
             }
+            //プレイヤーの攻撃速度をランダムで0.01～0.03の値で強化
             _gameManager._attackspeed += Random.Range(0.01f, 0.04f);
+            //プレイヤーの経験値を必要経験値分マイナス
             _playerManager.exp -= _playerattackspeedexp;
+            //必要経験値を5～9の間で増加
             _playerattackspeedexp += Random.Range(5, 10);
         }
     }
     public void playerAttackDamage()
     {
+        //経験値が必要経験値を上回っているか
         if (_playerManager.exp >= _playerattackdamageexp)
         {
+            //チュートリアルが10段階目以上進んでたら
             if (_tutorial.tutorialtextCount == 10)
             {
                 _tutorial.tutorialtextCount++;
             }
+            //プレイヤーの攻撃力をランダムで1～3の値で強化
             _gameManager._attackDamage += Random.Range(1, 4);
+            //プレイヤーの経験値を必要経験値分マイナス
             _playerManager.exp -= _playerattackdamageexp;
+            //必要経験値を10～19の間で増加
             _playerattackdamageexp += Random.Range(10, 20);
         }
     }
     public void playerHp()
     {
+        //経験値が必要経験値を上回っているか
         if (_playerManager.exp >= _playerHealHpexp)
         {
-            if(_gameManager._playerHp != _gameManager._playerMaxHp)
+            //チュートリアルが10段階目以上進んでたら
+            if (_gameManager._playerHp != _gameManager._playerMaxHp)
             {
+                //プレイヤーのHPを最大まで回復
                 _gameManager._playerHp = _gameManager._playerMaxHp;
+                //プレイヤーの経験値を必要経験値分マイナス
                 _playerManager.exp -= _playerHealHpexp;
+                //必要経験値を100～199の間で増加
                 _playerHealHpexp += Random.Range(100, 200);
             }
         }

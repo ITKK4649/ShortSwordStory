@@ -115,7 +115,7 @@ public class Tutorial : MonoBehaviour
                     tutorialCount++;
                 }
                 tutorialtext[5].text = "今度は敵が追いかけてくるよ！気を付けよう！";
-                tutorialtext[4].text = "カーソルはESCキーで表示できるよ！";
+                tutorialtext[4].text = "カーソルはQキーで表示できるよ！";
                 break;
             case 13:
                 objects[0].SetActive(false);
@@ -153,6 +153,7 @@ public class Tutorial : MonoBehaviour
                 objects[7].SetActive(true);
                 objects[8].SetActive(true);
                 tutorialtext[6].text = "ゲームを始めるかタイトルに戻ろう！";
+                tutorialtext[5].text = "ESCキーでゲーム終了することも出来るよ！";
                 tutorialtext[4].text = "";
                 break;
         }

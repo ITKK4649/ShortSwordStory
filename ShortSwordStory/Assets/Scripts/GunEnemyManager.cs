@@ -50,7 +50,7 @@ public class GunEnemyManager : MonoBehaviour
             {
                 Destroy(this.gameObject);
                 Instantiate(Death, this.gameObject.transform.position, Quaternion.identity);
-                _playerManager.exp += Random.Range(1, 10);
+                _playerManager.exp += Random.Range(1 * _gameManager._Expboost, 10 * _gameManager._Expboost);
                 _gameManager._enemyKillCount++;
                 _gameManager._enemyKillCountMax++;
             }

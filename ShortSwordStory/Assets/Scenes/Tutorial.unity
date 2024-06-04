@@ -3546,6 +3546,7 @@ MonoBehaviour:
   _enemyMaxHp: 05000000140000001e000000
   _enemyKillCount: 0
   _enemyKillCountMax: 0
+  _Expboost: 0
   _enemy: {fileID: 871632336190509285, guid: c3c6770154fa69649921a34ff02d5c13, type: 3}
   _gunenemy: {fileID: 871632336190509285, guid: fcd06cda04674b4469f69f70e43f3604, type: 3}
   _tpenemy: {fileID: 871632336190509285, guid: 617de25fe507ee74d872aaeb4158a0b4, type: 3}

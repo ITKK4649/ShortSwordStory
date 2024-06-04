@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Search;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -57,10 +56,6 @@ public class PlayerManager : MonoBehaviour
                 Destroy(ult, 2f);
                 ultcount--;
             }
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                exp += 1000;
-            }
         }
     }
     private void FixedUpdate()
@@ -86,14 +81,13 @@ public class PlayerManager : MonoBehaviour
     }
     public void UpdateCursorLock()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             cursorLock = false;
         }
         else if (Input.GetMouseButton(0))
         {
             cursorLock = true;
-
         }
         if (cursorLock)
         {

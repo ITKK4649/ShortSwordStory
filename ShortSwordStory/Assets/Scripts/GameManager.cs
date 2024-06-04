@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public List<int> _enemyMaxHp = new List<int>();
     public int _enemyKillCount;
     public int _enemyKillCountMax;
+    public int _Expboost;
     bool Hpup = false;
 
     [SerializeField]
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
         _enemyManager._speed = 1f;
         _gunenemyManager._speed = 1f;
         _tpenemyManager._speed = 1f;
+        _Expboost = 1;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
         if (SceneManager.GetActiveScene().name == "MainScene")
@@ -58,11 +60,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Cursor.visible = true;
         }
-        if(_enemyKillCountMax == 20 && !Hpup)
+        if (_enemyKillCountMax == 20 && !Hpup)
         {
             _enemyMaxHp[0] += 5;
             Hpup = true;
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviour
         if(_enemyKillCount >= 100)
         {
             _playerManager.ultcount++;
+            _Expboost += 1;
             _enemyMaxHp[0] += 10;
             if(_enemyManager._speed < 10f)
             {

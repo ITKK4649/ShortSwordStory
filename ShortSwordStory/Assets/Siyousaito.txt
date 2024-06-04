@@ -10,3 +10,5 @@ https://gametukurikata.com/ui/hpui
 https://futabazemi.net/unity/unity-enemy_shot3d
 爆発エフェクト
 https://styly.cc/ja/tips/explosion01/
+敵生成
+https://programming.sincoston.com/unity-random-create-certain-range/

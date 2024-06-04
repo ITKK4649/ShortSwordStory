@@ -34,4 +34,9 @@ public class Sceneseni : MonoBehaviour
         SceneNumber = 2;
         SceneManager.LoadScene(SceneNumber);
     }
+
+    public void GameEnd()
+    {
+        Application.Quit();
+    }
 }

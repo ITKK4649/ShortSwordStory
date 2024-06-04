@@ -8,6 +8,7 @@ public class BulletDamage : MonoBehaviour
     private GameManager _gameManager;
     private EnemyManager _enemyManager;
     private GunEnemyManager _gunenemyManager;
+    private TpEnemyManager _TpenemyManager;
     private TutorialEnemyManager _tutorialenemyManager;
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,11 @@ public class BulletDamage : MonoBehaviour
             _gunenemyManager = other.GetComponent<GunEnemyManager>();
             _gunenemyManager._gunenemyHp -= _gameManager._attackDamage * 10;
         }
+        if (other.gameObject.CompareTag("TpEnemy"))
+        {
+            _TpenemyManager = other.GetComponent<TpEnemyManager>();
+            _TpenemyManager._tpenemyHp -= _gameManager._attackDamage * 10;
+        }
         if (other.gameObject.CompareTag("EnemyBullet"))
         {
             Destroy(other.gameObject);
@@ -60,6 +66,11 @@ public class BulletDamage : MonoBehaviour
         {
             _gunenemyManager = other.GetComponent<GunEnemyManager>();
             _gunenemyManager._gunenemyHp -= _gameManager._attackDamage * 10;
+        }
+        if (other.gameObject.CompareTag("TpEnemy"))
+        {
+            _TpenemyManager = other.GetComponent<TpEnemyManager>();
+            _TpenemyManager._tpenemyHp -= _gameManager._attackDamage * 10;
         }
         if (other.gameObject.CompareTag("EnemyBullet"))
         {
