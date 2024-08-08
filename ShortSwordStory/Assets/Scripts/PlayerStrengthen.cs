@@ -12,6 +12,8 @@ public class PlayerStrengthen : MonoBehaviour
     [SerializeField]
     private GameManager _gameManager;
     [SerializeField]
+    private Menu _menu;
+    [SerializeField]
     Tutorial _tutorial;
     [SerializeField]
     private GameObject _playerCanvas;
@@ -51,30 +53,33 @@ public class PlayerStrengthen : MonoBehaviour
             _playerstreng[3].text = "" + _playerHealHpexp;
             _playerstreng[4].text = "EnemyKillCount:" + _gameManager._enemyKillCountMax;
             _playerexp.text = "EXPÅF" + _playerManager.exp;
-            if (Input.GetKeyDown(KeyCode.J) && _menucount == 0)
+            if (_menu._menuopenset == false)
             {
-                if (_tutorial.tutorialtextCount == 9)
+                if (Input.GetKeyDown(KeyCode.J) && _menucount == 0)
                 {
-                    _tutorial.tutorialtextCount++;
+                    if (_tutorial.tutorialtextCount == 9)
+                    {
+                        _tutorial.tutorialtextCount++;
+                    }
+                    _playerCanvas.SetActive(true);
+                    _HpCanvas.SetActive(false);
+                    Cursor.visible = true;
+                    shopopen = true;
+                    _menucount++;
                 }
-                _playerCanvas.SetActive(true);
-                _HpCanvas.SetActive(false);
-                Cursor.visible = true;
-                shopopen = true;
-                _menucount++;
-            }
-            else if (Input.GetKeyDown(KeyCode.J) && _menucount == 1)
-            {
-                if (_tutorial.tutorialtextCount == 11)
+                else if (Input.GetKeyDown(KeyCode.J) && _menucount == 1)
                 {
-                    _tutorial.tutorialtextCount++;
+                    if (_tutorial.tutorialtextCount == 11)
+                    {
+                        _tutorial.tutorialtextCount++;
+                    }
+                    _playerCanvas.SetActive(false);
+                    _exCanvas.SetActive(false);
+                    _HpCanvas.SetActive(true);
+                    Cursor.visible = false;
+                    shopopen = false;
+                    _menucount = 0;
                 }
-                _playerCanvas.SetActive(false);
-                _exCanvas.SetActive(false);
-                _HpCanvas.SetActive(true);
-                Cursor.visible = false;
-                shopopen = false;
-                _menucount = 0;
             }
         }
     }

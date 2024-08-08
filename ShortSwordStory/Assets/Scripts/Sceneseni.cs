@@ -14,7 +14,13 @@ public class Sceneseni : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (SceneNumber != 2)
+            {
+                Application.Quit();
+            }
+        }
     }
 
     public void Title()

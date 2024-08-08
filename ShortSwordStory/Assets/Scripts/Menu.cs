@@ -18,25 +18,33 @@ public class Menu : MonoBehaviour
     [SerializeField]
     private GameManager _gameManger;
     [SerializeField]
+    private EnemySp _EnemySp;
+    [SerializeField]
     private GameObject _statuspanel;
     int SceneNumber;
+    public bool _menuopenset;
     [SerializeField]
     private List<Text> _playerstatus = new List<Text>();
     // Start is called before the first frame update
     void Start()
     {
-        
+        _menuCanvas.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (_playerStrengthen.shopopen == false)
         {
-            _menuCanvas.SetActive(true);
-            _HpCanvas.SetActive(false);
-            _statuspanel.SetActive(false);
-            _playerStrengthen.shopopen = true;
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                _menuCanvas.SetActive(true);
+                _HpCanvas.SetActive(false);
+                _statuspanel.SetActive(false);
+                _playerStrengthen.shopopen = true;
+                Cursor.visible = true;
+                _menuopenset = true;
+            }
         }
     }
     public void Status()
@@ -45,6 +53,8 @@ public class Menu : MonoBehaviour
         _playerstatus[0].text = "" + _gameManger._attackspeed;
         _playerstatus[1].text = "" + _gameManger._attackDamage;
         _playerstatus[2].text = "" + _playerManger.speed;
+        _playerstatus[3].text = "" + _EnemySp.timeMax;
+        _playerstatus[4].text = "" + _playerManger.ultcount;
     }
     public void Back_to_Game()
     {
@@ -52,12 +62,14 @@ public class Menu : MonoBehaviour
         _HpCanvas.SetActive(true);
         _playerStrengthen.shopopen = false;
         Cursor.visible = false;
+        _menuopenset = false;
     }
     public void Back_to_Title()
     {
         SceneNumber = 0;
         SceneManager.LoadScene(SceneNumber);
         Cursor.visible = true;
+        _menuopenset = false;
     }
     public void GameEnd()
     {
